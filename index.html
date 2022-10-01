@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC JOARAUJOTEC</title>
+    <style>
+        body{
+            
+            text-align: center;
+            color: rgb(255, 255, 255);
+            background: linear-gradient(to right, rgb(2, 136, 287), rgb(109, 3, 3));
+            background-image: url('fundo.png');
+            image-rendering: crisp-edges;
+            align-content: center;
+            image-rendering: inherit;
+            
+        }
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 3em;
+            border-radius: 10px 0px 10px 0px;
+            
+        }
+        button{
+            background-color: slateblue;
+            color: rgb(238, 238, 238);
+            border: none;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px rgb(179, 6, 6);
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(49, 46, 196);
+
+        }
+        .deuxieme-pas,
+        .troisieme-pas{
+            display: none;
+        }
+        
+        input{
+            padding: 5px;
+            border-radius: 5;
+            border: none;
+            
+        }
+        #resultat{
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <H2>Développeur @JOARAUJOTEC</h2> 
+    <h4>Surveillez votre poids! Votre santé vous remercie!</h4>
+    <h5>Obseve seu peso! Sua saúde agradece!</h5>
+    <div class="container">
+
+        <div class="premier-pas">
+            <p>Cliquez sur le bouton pour calculer votre IMC</p>
+            <button onclick="go(1,2)">Initier</button> 
+        </div>
+
+        <div class="deuxieme-pas">
+            <h3>Calculatrice IMC</h3>
+            <hr>
+            <label for="poids">Informez votre poids</label>
+            <input type="number" placeholder="Votre poids" id="poids">
+            <br><br>
+            <label for="taille">Informez votre taille</label>
+            <input type="number" placeholder="Votre taille" id="taille">
+            <br><br>
+            <button onclick="validate()">Calculer</button>
+        </div>
+
+        <div class="troisieme-pas">
+            <h3>Résultat!</h3>
+            <p id="resultat"></p>
+            <button onclick="go(3,2)">Nouveau Calcul</button>
+            <button onclick="go(3,1)">Finaliser</button>
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+    const premierDiv = document.querySelector('.premier-pas');
+    const deuxiemeDiv = document.querySelector('.deuxieme-pas');
+    const troisiemeDiv = document.querySelector('.troisieme-pas');
+
+    function go(currentStep,nextStep) //fonction chargée de basculer entre les DIV
+   //elle appliquera l’affichage NONE sur une DIV et appliquera l’affichage BLOCK sur une autre DIV
+    {
+        let dNone, dBlock;
+        if(currentStep == 1)
+        {
+            dNone = premierDiv;
+        }
+        else if(currentStep == 2)
+        {
+            dNone = deuxiemeDiv;
+        }
+        else
+        {
+            dNone = troisiemeDiv;
+        }
+
+        dNone.style.display = 'none';
+
+        if(nextStep == 1)
+        {
+            dBlock = premierDiv;
+        }
+        else if(nextStep == 2)
+        {
+            dBlock = deuxiemeDiv;
+        }
+        else
+        {
+            dBlock = troisiemeDiv;
+        }
+
+        dBlock.style.display = 'block';
+    }
+
+function validate()
+//Fonctionne pour valider la saisie de données si l’un des champs est vide et est en rouge
+{
+    const poids = document.getElementById('poids');
+    const taille = document.getElementById('taille');
+
+    //pour enlever les bords au début
+    poids.style.border = 'none';
+    taille.style.border = 'none';
+
+    if(!poids.value || !taille.value)
+    {
+        if(!poids.value && !taille.value)
+        {
+            poids.style.border = '1px solid red';
+            taille.style.border = '1px solid red';
+        }
+        else if(!poids.value)
+        {
+            poids.style.border = '1px solid red';
+        }
+        else
+        {
+            taille.style.border = '1px solid red';
+        }
+    }
+    else
+    {
+        let imc = poids.value / (taille.value * taille.value);
+        const result = document.getElementById('resultat');
+        if(imc < 18.5)
+        {
+            console.log('Minceur | Obésité 0');
+            result.style.color = 'green'; // Colorer les résultats en suivant les conditions
+            result.innerHTML = "Minceur | Obésité 0";//responsable de montrer le résultat dans le tag P
+        }
+        else if (imc >= 18.5 && imc < 25)
+        {
+            console.log('Normal | Obésité 0');
+            result.style.color = 'green';
+            result.innerHTML = "Normal | Obésité 0";
+        }
+        else if(imc >= 25 && imc < 30)
+        {
+            console.log('Surpoids | Obésité I');
+            result.style.color = 'yellow';
+            result.innerHTML = "Surpoids | Obésité I";
+        }
+        else if(imc >= 30 && imc< 40)
+        {
+            console.log('Obésité | Obésité II');
+            result.style.color = 'red';
+            result.innerHTML = "Obésité | Obésité II";
+        }
+        else
+        {
+            console.log('Obésité grave | Obésité III');
+            result.style.color = 'black';
+            result.innerHTML = "Obésité grave | Obésité III";
+        }
+        go(2,3);//fonction responsavel pour montrer la troisième div lorsque les valeurs sont saisies et nous cliquons sur calculer
+    }
+
+}
+</script>
+
+
+   
