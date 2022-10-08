@@ -7,8 +7,8 @@ Un excellent exercice où je me suis senti très heureux de développer la calcu
 *valider la saisie de données;
 *Mise en forme des styles et plus encore.
 
-Um excelente exercício onde me senti muito feliz por desenvolver a calculadora e poder usar meus conhecimentos para:
-*alterar visualização (mostrar e bloquear) DIVs com a função GO;
-*utilização de  condicionais;
-*Validar entrada de dados;
+Um excelente exercício onde me senti muito feliz por desenvolver a calculadora e poder usar meus conhecimentos para:<br>
+*alterar visualização (mostrar e bloquear) DIVs com a função GO;<br>
+*utilização de  condicionais;<br>
+*Validar entrada de dados;<br>
 *Formatação de estilos e muito mais.
