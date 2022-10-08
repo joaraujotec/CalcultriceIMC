@@ -2,7 +2,7 @@
 Calculadora de IMC / CalculatriceIMC
 
 Un excellent exercice où je me suis senti très heureux de développer la calculatrice et de pouvoir utiliser mes connaissances pour:
-*modifier l’affichage (afficher et verrouiller) DIVS avec la fonction GO;
+*modifier l’affichage (afficher et verrouiller) DIVS avec la fonction GO;<br>
 *utilisation de conditionnements;
 *valider la saisie de données;
 *Mise en forme des styles et plus encore.
