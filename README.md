@@ -1,9 +1,9 @@
-# CalcultriceIMC
+# Calcultrice IMC
 Calculadora de IMC / CalculatriceIMC
 
-Un excellent exercice où je me suis senti très heureux de développer la calculatrice et de pouvoir utiliser mes connaissances pour:
+Un excellent exercice où je me suis senti très heureux de développer la calculatrice et de pouvoir utiliser mes connaissances pour:<br>
 *modifier l’affichage (afficher et verrouiller) DIVS avec la fonction GO;<br>
-*utilisation de conditionnements;
+*utilisation de conditionnements;<br>
 *valider la saisie de données;
 *Mise en forme des styles et plus encore.
 
